@@ -85,7 +85,6 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Check and book room";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // label6
             // 
@@ -96,8 +95,6 @@
             this.label6.Size = new System.Drawing.Size(75, 13);
             this.label6.TabIndex = 13;
             this.label6.Text = "Room Number";
-            this.label6.VisibleChanged += new System.EventHandler(this.label6_VisibleChanged);
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // CheckRoomNO
             // 
@@ -107,8 +104,6 @@
             this.CheckRoomNO.Name = "CheckRoomNO";
             this.CheckRoomNO.Size = new System.Drawing.Size(99, 21);
             this.CheckRoomNO.TabIndex = 12;
-            this.CheckRoomNO.SelectedIndexChanged += new System.EventHandler(this.CheckRoomNO_SelectedIndexChanged);
-            this.CheckRoomNO.VisibleChanged += new System.EventHandler(this.label6_VisibleChanged);
             // 
             // label5
             // 
@@ -119,7 +114,6 @@
             this.label5.Size = new System.Drawing.Size(54, 13);
             this.label5.TabIndex = 11;
             this.label5.Text = "User SSN";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // CheckUSSN
             // 
@@ -129,7 +123,6 @@
             this.CheckUSSN.Name = "CheckUSSN";
             this.CheckUSSN.Size = new System.Drawing.Size(99, 21);
             this.CheckUSSN.TabIndex = 10;
-            this.CheckUSSN.SelectedIndexChanged += new System.EventHandler(this.CheckUSSN_SelectedIndexChanged);
             // 
             // ReserveBTN
             // 
@@ -170,7 +163,6 @@
             this.CheckEndDate.Name = "CheckEndDate";
             this.CheckEndDate.Size = new System.Drawing.Size(102, 20);
             this.CheckEndDate.TabIndex = 14;
-            this.CheckEndDate.ValueChanged += new System.EventHandler(this.CheckEndDate_ValueChanged);
             // 
             // CheckStartDate
             // 
@@ -264,7 +256,6 @@
             this.label7.Size = new System.Drawing.Size(75, 13);
             this.label7.TabIndex = 16;
             this.label7.Text = "Room Number";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // BillRoomNoCombo
             // 
@@ -274,7 +265,6 @@
             this.BillRoomNoCombo.Name = "BillRoomNoCombo";
             this.BillRoomNoCombo.Size = new System.Drawing.Size(99, 21);
             this.BillRoomNoCombo.TabIndex = 15;
-            this.BillRoomNoCombo.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // CheckBillBTN
             // 
@@ -387,7 +377,6 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form_Receptionist";
             this.Text = "Form_Receptionist";
-            this.Load += new System.EventHandler(this.Form_Receptionist_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

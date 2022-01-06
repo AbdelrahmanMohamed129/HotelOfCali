@@ -117,6 +117,18 @@
     <Compile Include="Form_Receptionist.Designer.cs">
       <DependentUpon>Form_Receptionist.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_reserveevent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_reserveevent.Designer.cs">
+      <DependentUpon>Form_reserveevent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_userevents.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_userevents.Designer.cs">
+      <DependentUpon>Form_userevents.cs</DependentUpon>
+    </Compile>
     <Compile Include="Organizer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,6 +184,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Receptionist.resx">
       <DependentUpon>Form_Receptionist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_reserveevent.resx">
+      <DependentUpon>Form_reserveevent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_userevents.resx">
+      <DependentUpon>Form_userevents.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Organizer.resx">
       <DependentUpon>Organizer.cs</DependentUpon>

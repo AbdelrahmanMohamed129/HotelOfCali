@@ -59,6 +59,20 @@ namespace DBapplication
             return dbMan.ExecuteNonQuery(query);
         }
 
+        public DataTable CheckUserToReserveEvent(string username, string num)
+        {
+            string query = $"select 1 from Reservation r, [Events] e, [User] u " +
+                $"where r.StartDate <= e.StartDate AND r.EndDate >= e.EndDate AND u.UserName = '{username}' AND e.EventNO = {num} AND u.SSN = r.USSN";
+            return dbMan.ExecuteReader(query);
+        }
+
+        public int InsertAttendEvent(string username, string password, string num)
+        {
+            string ssn = SelectUserSSN(username, password).Rows[0][0].ToString();
+            string query = $"Insert into Attend (USSN, EventNO) values ('{ssn}','{num}')";
+            return dbMan.ExecuteNonQuery(query);
+        }
+
         //------------------------------------DELETE QUERIES-------------------------
         public int DeleteEvent(string num)
         {
@@ -66,9 +80,22 @@ namespace DBapplication
             return dbMan.ExecuteNonQuery(query);
         }
 
+
         public int DeleteRoom(string RoomNo)
         {
             string query = $"DELETE FROM Room WHERE RoomNO = {RoomNo}";
+            return dbMan.ExecuteNonQuery(query);
+        }
+
+        public int DeleteEmployee(string SSN)
+        {
+            string query = $"DELETE FROM Employee WHERE SSN = {SSN}";
+            return dbMan.ExecuteNonQuery(query);
+        }
+        public int DeleteEmployeeLoging(string Username)
+        {
+            string query = $"DELETE FROM LoginAccount WHERE UserName = '{Username}'";
+            
             return dbMan.ExecuteNonQuery(query);
         }
         //------------------------------------UPDATE QUERIES-------------------------
@@ -151,6 +178,16 @@ namespace DBapplication
             return dbMan.ExecuteNonQuery(query);
         }
 
+        public int UpdateEMPRole(string SSN,string role)
+        {
+            string query = $"Update Employee set RoleID = '{role}' where SSN = {SSN}; ";
+            return dbMan.ExecuteNonQuery(query);
+        }
+        public int UpdateEMPSalary(string SSN, string Salary)
+        {
+            string query = $"Update Employee set Salary = '{Salary}' where SSN = {SSN}; ";
+            return dbMan.ExecuteNonQuery(query);
+        }
 
 
         public int SetEventCostNulls()
@@ -179,9 +216,18 @@ namespace DBapplication
             return dbMan.ExecuteReader(query);
         }
 
+
         public DataTable SelectRoomNO()
         {
             string query = $"select RoomNO from room ;";
+            return dbMan.ExecuteReader(query);
+        }
+
+
+        public DataTable SelectUserNameFromSSN(string SSN)
+        {
+            string query = $"SELECT UserName FROM Employee where SSN = {SSN} ;";
+
             return dbMan.ExecuteReader(query);
         }
 
@@ -266,7 +312,12 @@ namespace DBapplication
         }
         public DataTable SelectRoleID()
         {
-            string query = $"SELECT distinct RoleID FROM Roles;";
+            string query = $"(SELECT RoleID FROM Roles) except (SELECT RoleID FROM Roles where RoleID = 'MGR' or RoleID = 'CEO');";
+            return dbMan.ExecuteReader(query);
+        }
+        public DataTable SelectSSNForEditEmp()
+        {
+            string query = $"select ssn from employee  except (SELECT e.SSN FROM Roles as r,Employee as e where (r.RoleID = 'MGR' or r.RoleID = 'CEO') and e.RoleID = r.RoleID);";
             return dbMan.ExecuteReader(query);
         }
         public DataTable SelectEmployeDEPSSN()
@@ -337,6 +388,14 @@ namespace DBapplication
             string query = $"select EventCost, RoomCost, (EventCost + RoomCost) as TotalCost from  Bill as b, Reservation as r where b.BillNO = r.BillNO and r.RoomNO = {RoomNO};" ;
 
 
+            return dbMan.ExecuteReader(query);
+        }
+
+        public DataTable SelectUserEvents(string username)
+        {
+            string query = $"select e.* " +
+                $"from Attend a,[User] u,[Events] e " +
+                $"where u.SSN = a.USSN AND u.UserName = '{username}'  AND e.EventNO = a.EventNO";
             return dbMan.ExecuteReader(query);
         }
 

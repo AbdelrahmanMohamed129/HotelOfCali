@@ -194,7 +194,25 @@ namespace DBapplication
             char cr = e.KeyChar;
             if (!char.IsDigit(cr) && cr != 8 && cr != 46) { e.Handled = true; MessageBox.Show("Numbers only please!"); }
         }
-    }
+
+		private void btn_showevents_Click(object sender, EventArgs e)
+		{
+            Form_findevents myform = new Form_findevents();
+            myform.Show();
+		}
+
+		private void button3_Click(object sender, EventArgs e)
+		{
+            Form_reserveevent myform = new Form_reserveevent(userName, password);
+            myform.Show();
+        }
+
+		private void btn_myevents_Click(object sender, EventArgs e)
+		{
+            Form_userevents myform = new Form_userevents(userName);
+            myform.Show();
+		}
+	}
 
         
     
