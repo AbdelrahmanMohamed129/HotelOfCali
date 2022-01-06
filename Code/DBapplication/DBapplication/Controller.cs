@@ -53,6 +53,11 @@ namespace DBapplication
                 $"values({cost}, '{description}', '{startdate}', '{enddate}')";
             return dbMan.ExecuteNonQuery(query);
         }
+        public int InsertRoom(string Roomtype, string ssn)
+        {
+            string query = $"insert into room (RoomType,Occupancy,Cleaned,ESSN) values ('{Roomtype}',0,'T',{ssn});";
+            return dbMan.ExecuteNonQuery(query);
+        }
 
         public DataTable CheckUserToReserveEvent(string username, string num)
         {
@@ -72,6 +77,13 @@ namespace DBapplication
         public int DeleteEvent(string num)
         {
             string query = $"DELETE FROM Events WHERE EventNO = {num}";
+            return dbMan.ExecuteNonQuery(query);
+        }
+
+
+        public int DeleteRoom(string RoomNo)
+        {
+            string query = $"DELETE FROM Room WHERE RoomNO = {RoomNo}";
             return dbMan.ExecuteNonQuery(query);
         }
 
@@ -212,9 +224,18 @@ namespace DBapplication
             return dbMan.ExecuteReader(query);
         }
 
+
+        public DataTable SelectRoomNO()
+        {
+            string query = $"select RoomNO from room ;";
+            return dbMan.ExecuteReader(query);
+        }
+
+
         public DataTable SelectUserNameFromSSN(string SSN)
         {
             string query = $"SELECT UserName FROM Employee where SSN = {SSN} ;";
+
             return dbMan.ExecuteReader(query);
         }
 
@@ -257,7 +278,16 @@ namespace DBapplication
             string query = $"(select RoomView from RoomType)  union (select RoomView from RoomType) ;";
             return dbMan.ExecuteReader(query);
         }
-
+        public DataTable SelecthouskeepingSSN()
+        {
+            string query = $"select ssn from employee,Roles where employee.RoleID = roles.RoleID and employee.RoleID='HouEMP';";
+            return dbMan.ExecuteReader(query);
+        }
+        public DataTable SelectRoomTypeID()
+        {
+            string query = $"select RoomTypeID from RoomType ;";
+            return dbMan.ExecuteReader(query);
+        }
 
         public DataTable SelectRoleid(string username)
         {
