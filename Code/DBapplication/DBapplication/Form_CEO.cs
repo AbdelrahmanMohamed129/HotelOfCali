@@ -16,5 +16,11 @@ namespace DBapplication
         {
             InitializeComponent();
         }
+
+        private void MgrView_Click(object sender, EventArgs e)
+        {
+            Form_manager MgrForm = new Form_manager();
+            MgrForm.Show();
+        }
     }
 }
