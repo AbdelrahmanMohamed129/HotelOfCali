@@ -126,8 +126,14 @@ namespace DBapplication
         private void CheckEventBTN_Click(object sender, EventArgs e)
         {
             Form_findevents Fevent = new Form_findevents();
+            this.Hide();
             Fevent.Show();
         }
-        
+
+        private void ReserveEventBTN_Click(object sender, EventArgs e)
+        {
+            Form_RecepResEvent recResEvent = new Form_RecepResEvent();
+            recResEvent.Show();
+        }
     }
 }

@@ -56,6 +56,7 @@
             this.CheckOutRoomNOCombo = new System.Windows.Forms.ComboBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.CheckEventBTN = new System.Windows.Forms.Button();
+            this.ReserveEventBTN = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CheckBillGrid)).BeginInit();
@@ -100,7 +101,7 @@
             // 
             this.CheckRoomNO.FormattingEnabled = true;
             this.CheckRoomNO.Location = new System.Drawing.Point(467, 70);
-            this.CheckRoomNO.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CheckRoomNO.Margin = new System.Windows.Forms.Padding(2);
             this.CheckRoomNO.Name = "CheckRoomNO";
             this.CheckRoomNO.Size = new System.Drawing.Size(99, 21);
             this.CheckRoomNO.TabIndex = 12;
@@ -119,7 +120,7 @@
             // 
             this.CheckUSSN.FormattingEnabled = true;
             this.CheckUSSN.Location = new System.Drawing.Point(467, 26);
-            this.CheckUSSN.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CheckUSSN.Margin = new System.Windows.Forms.Padding(2);
             this.CheckUSSN.Name = "CheckUSSN";
             this.CheckUSSN.Size = new System.Drawing.Size(99, 21);
             this.CheckUSSN.TabIndex = 10;
@@ -127,7 +128,7 @@
             // ReserveBTN
             // 
             this.ReserveBTN.Location = new System.Drawing.Point(240, 124);
-            this.ReserveBTN.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ReserveBTN.Margin = new System.Windows.Forms.Padding(2);
             this.ReserveBTN.Name = "ReserveBTN";
             this.ReserveBTN.Size = new System.Drawing.Size(109, 38);
             this.ReserveBTN.TabIndex = 9;
@@ -159,7 +160,7 @@
             this.CheckEndDate.CustomFormat = "yyyy-MM-dd";
             this.CheckEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.CheckEndDate.Location = new System.Drawing.Point(247, 71);
-            this.CheckEndDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CheckEndDate.Margin = new System.Windows.Forms.Padding(2);
             this.CheckEndDate.Name = "CheckEndDate";
             this.CheckEndDate.Size = new System.Drawing.Size(102, 20);
             this.CheckEndDate.TabIndex = 14;
@@ -169,7 +170,7 @@
             this.CheckStartDate.CustomFormat = "yyyy-MM-dd";
             this.CheckStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.CheckStartDate.Location = new System.Drawing.Point(69, 70);
-            this.CheckStartDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CheckStartDate.Margin = new System.Windows.Forms.Padding(2);
             this.CheckStartDate.Name = "CheckStartDate";
             this.CheckStartDate.Size = new System.Drawing.Size(109, 20);
             this.CheckStartDate.TabIndex = 5;
@@ -177,7 +178,7 @@
             // CheckRoomAvailableBTN
             // 
             this.CheckRoomAvailableBTN.Location = new System.Drawing.Point(89, 124);
-            this.CheckRoomAvailableBTN.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CheckRoomAvailableBTN.Margin = new System.Windows.Forms.Padding(2);
             this.CheckRoomAvailableBTN.Name = "CheckRoomAvailableBTN";
             this.CheckRoomAvailableBTN.Size = new System.Drawing.Size(99, 38);
             this.CheckRoomAvailableBTN.TabIndex = 4;
@@ -209,7 +210,7 @@
             // 
             this.CheckRoomViewCombo.FormattingEnabled = true;
             this.CheckRoomViewCombo.Location = new System.Drawing.Point(247, 27);
-            this.CheckRoomViewCombo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CheckRoomViewCombo.Margin = new System.Windows.Forms.Padding(2);
             this.CheckRoomViewCombo.Name = "CheckRoomViewCombo";
             this.CheckRoomViewCombo.Size = new System.Drawing.Size(92, 21);
             this.CheckRoomViewCombo.TabIndex = 1;
@@ -218,7 +219,7 @@
             // 
             this.CheckRoomTypeCombo.FormattingEnabled = true;
             this.CheckRoomTypeCombo.Location = new System.Drawing.Point(69, 26);
-            this.CheckRoomTypeCombo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CheckRoomTypeCombo.Margin = new System.Windows.Forms.Padding(2);
             this.CheckRoomTypeCombo.Name = "CheckRoomTypeCombo";
             this.CheckRoomTypeCombo.Size = new System.Drawing.Size(109, 21);
             this.CheckRoomTypeCombo.TabIndex = 0;
@@ -230,9 +231,9 @@
             this.groupBox2.Controls.Add(this.BillRoomNoCombo);
             this.groupBox2.Controls.Add(this.CheckBillBTN);
             this.groupBox2.Location = new System.Drawing.Point(19, 206);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox2.Size = new System.Drawing.Size(524, 108);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
@@ -242,7 +243,7 @@
             // 
             this.CheckBillGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.CheckBillGrid.Location = new System.Drawing.Point(212, 15);
-            this.CheckBillGrid.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CheckBillGrid.Margin = new System.Windows.Forms.Padding(2);
             this.CheckBillGrid.Name = "CheckBillGrid";
             this.CheckBillGrid.Size = new System.Drawing.Size(297, 83);
             this.CheckBillGrid.TabIndex = 2;
@@ -261,7 +262,7 @@
             // 
             this.BillRoomNoCombo.FormattingEnabled = true;
             this.BillRoomNoCombo.Location = new System.Drawing.Point(95, 28);
-            this.BillRoomNoCombo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BillRoomNoCombo.Margin = new System.Windows.Forms.Padding(2);
             this.BillRoomNoCombo.Name = "BillRoomNoCombo";
             this.BillRoomNoCombo.Size = new System.Drawing.Size(99, 21);
             this.BillRoomNoCombo.TabIndex = 15;
@@ -269,7 +270,7 @@
             // CheckBillBTN
             // 
             this.CheckBillBTN.Location = new System.Drawing.Point(49, 59);
-            this.CheckBillBTN.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CheckBillBTN.Margin = new System.Windows.Forms.Padding(2);
             this.CheckBillBTN.Name = "CheckBillBTN";
             this.CheckBillBTN.Size = new System.Drawing.Size(105, 45);
             this.CheckBillBTN.TabIndex = 14;
@@ -285,9 +286,9 @@
             this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Controls.Add(this.CheckOutRoomNOCombo);
             this.groupBox3.Location = new System.Drawing.Point(19, 341);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox3.Size = new System.Drawing.Size(308, 91);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
@@ -296,7 +297,7 @@
             // CheckOutBTN
             // 
             this.CheckOutBTN.Location = new System.Drawing.Point(212, 26);
-            this.CheckOutBTN.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CheckOutBTN.Margin = new System.Windows.Forms.Padding(2);
             this.CheckOutBTN.Name = "CheckOutBTN";
             this.CheckOutBTN.Size = new System.Drawing.Size(70, 46);
             this.CheckOutBTN.TabIndex = 3;
@@ -318,7 +319,7 @@
             // 
             this.CheckOutUSSNCombo.FormattingEnabled = true;
             this.CheckOutUSSNCombo.Location = new System.Drawing.Point(84, 51);
-            this.CheckOutUSSNCombo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CheckOutUSSNCombo.Margin = new System.Windows.Forms.Padding(2);
             this.CheckOutUSSNCombo.Name = "CheckOutUSSNCombo";
             this.CheckOutUSSNCombo.Size = new System.Drawing.Size(99, 21);
             this.CheckOutUSSNCombo.TabIndex = 19;
@@ -337,33 +338,45 @@
             // 
             this.CheckOutRoomNOCombo.FormattingEnabled = true;
             this.CheckOutRoomNOCombo.Location = new System.Drawing.Point(84, 23);
-            this.CheckOutRoomNOCombo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CheckOutRoomNOCombo.Margin = new System.Windows.Forms.Padding(2);
             this.CheckOutRoomNOCombo.Name = "CheckOutRoomNOCombo";
             this.CheckOutRoomNOCombo.Size = new System.Drawing.Size(99, 21);
             this.CheckOutRoomNOCombo.TabIndex = 17;
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.ReserveEventBTN);
             this.groupBox4.Controls.Add(this.CheckEventBTN);
             this.groupBox4.Location = new System.Drawing.Point(349, 342);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox4.Size = new System.Drawing.Size(194, 90);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox4.Size = new System.Drawing.Size(252, 90);
             this.groupBox4.TabIndex = 3;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Check event";
+            this.groupBox4.Text = "Events";
             // 
             // CheckEventBTN
             // 
-            this.CheckEventBTN.Location = new System.Drawing.Point(51, 25);
-            this.CheckEventBTN.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CheckEventBTN.Location = new System.Drawing.Point(31, 25);
+            this.CheckEventBTN.Margin = new System.Windows.Forms.Padding(2);
             this.CheckEventBTN.Name = "CheckEventBTN";
             this.CheckEventBTN.Size = new System.Drawing.Size(92, 46);
             this.CheckEventBTN.TabIndex = 0;
             this.CheckEventBTN.Text = "Check event";
             this.CheckEventBTN.UseVisualStyleBackColor = true;
             this.CheckEventBTN.Click += new System.EventHandler(this.CheckEventBTN_Click);
+            // 
+            // ReserveEventBTN
+            // 
+            this.ReserveEventBTN.Location = new System.Drawing.Point(132, 25);
+            this.ReserveEventBTN.Margin = new System.Windows.Forms.Padding(2);
+            this.ReserveEventBTN.Name = "ReserveEventBTN";
+            this.ReserveEventBTN.Size = new System.Drawing.Size(92, 46);
+            this.ReserveEventBTN.TabIndex = 1;
+            this.ReserveEventBTN.Text = "Reserve event";
+            this.ReserveEventBTN.UseVisualStyleBackColor = true;
+            this.ReserveEventBTN.Click += new System.EventHandler(this.ReserveEventBTN_Click);
             // 
             // Form_Receptionist
             // 
@@ -419,5 +432,6 @@
         private System.Windows.Forms.ComboBox CheckOutRoomNOCombo;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button CheckEventBTN;
+        private System.Windows.Forms.Button ReserveEventBTN;
     }
 }

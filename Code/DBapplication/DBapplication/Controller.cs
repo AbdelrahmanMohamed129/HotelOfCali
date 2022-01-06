@@ -238,6 +238,19 @@ namespace DBapplication
 
             return dbMan.ExecuteReader(query);
         }
+        public DataTable SelectUserNameFromSSNForUser(string SSN)
+        {
+            string query = $"SELECT UserName FROM [user] where SSN = {SSN};";
+
+            return dbMan.ExecuteReader(query);
+        }
+
+        public DataTable SelectPassword(string Username)
+        {
+            string query = $"SELECT Password FROM LoginAccount where UserName = '{Username}';";
+
+            return dbMan.ExecuteReader(query);
+        }
 
         public DataTable SelectResDetails(string ssn)
         {
@@ -266,6 +279,11 @@ namespace DBapplication
         public DataTable SelectUSSNFromReserveation()
         {
             string query = $"SELECT USSN FROM Reservation;";
+            return dbMan.ExecuteReader(query);
+        }
+        public DataTable SelectUSSNForEvent()
+        {
+            string query = $"SELECT SSN FROM [User];";
             return dbMan.ExecuteReader(query);
         }
         public DataTable SelectRoomType()
@@ -326,6 +344,11 @@ namespace DBapplication
         public DataTable SelectSSNForEditEmp()
         {
             string query = $"select ssn from employee  except (SELECT e.SSN FROM Roles as r,Employee as e where (r.RoleID = 'MGR' or r.RoleID = 'CEO') and e.RoleID = r.RoleID);";
+            return dbMan.ExecuteReader(query);
+        }
+        public DataTable SelectSSNForEditMGR()
+        {
+            string query = $"SELECT e.SSN FROM Roles as r,Employee as e where (r.RoleID = 'MGR') and e.RoleID = r.RoleID;";
             return dbMan.ExecuteReader(query);
         }
         public DataTable SelectEmployeDEPSSN()

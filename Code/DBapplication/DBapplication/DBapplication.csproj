@@ -111,6 +111,12 @@
     <Compile Include="Form_housekeepingmarkrooms.Designer.cs">
       <DependentUpon>Form_housekeepingmarkrooms.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_RecepResEvent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_RecepResEvent.Designer.cs">
+      <DependentUpon>Form_RecepResEvent.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_Receptionist.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -184,6 +190,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_housekeepingmarkrooms.resx">
       <DependentUpon>Form_housekeepingmarkrooms.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_RecepResEvent.resx">
+      <DependentUpon>Form_RecepResEvent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Receptionist.resx">
       <DependentUpon>Form_Receptionist.cs</DependentUpon>

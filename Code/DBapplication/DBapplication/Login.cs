@@ -123,7 +123,7 @@ namespace DBapplication
                     }
                     else if(role_id.Rows[0][0].ToString() == "CEO")
                     {
-                        Form_CEO form_account = new Form_CEO();
+                        Form_CEO form_account = new Form_CEO(username);
                         form_account.Show();
                     }
 
