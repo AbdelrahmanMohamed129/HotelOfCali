@@ -54,6 +54,20 @@ namespace DBapplication
             return dbMan.ExecuteNonQuery(query);
         }
 
+        public DataTable CheckUserToReserveEvent(string username, string num)
+        {
+            string query = $"select 1 from Reservation r, [Events] e, [User] u " +
+                $"where r.StartDate <= e.StartDate AND r.EndDate >= e.EndDate AND u.UserName = '{username}' AND e.EventNO = {num} AND u.SSN = r.USSN";
+            return dbMan.ExecuteReader(query);
+        }
+
+        public int InsertAttendEvent(string username, string password, string num)
+        {
+            string ssn = SelectUserSSN(username, password).Rows[0][0].ToString();
+            string query = $"Insert into Attend (USSN, EventNO) values ('{ssn}','{num}')";
+            return dbMan.ExecuteNonQuery(query);
+        }
+
         //------------------------------------DELETE QUERIES-------------------------
         public int DeleteEvent(string num)
         {
@@ -312,6 +326,14 @@ namespace DBapplication
             string query = $"select EventCost, RoomCost, (EventCost + RoomCost) as TotalCost from  Bill as b, Reservation as r where b.BillNO = r.BillNO and r.RoomNO = {RoomNO};" ;
 
 
+            return dbMan.ExecuteReader(query);
+        }
+
+        public DataTable SelectUserEvents(string username)
+        {
+            string query = $"select e.* " +
+                $"from Attend a,[User] u,[Events] e " +
+                $"where u.SSN = a.USSN AND u.UserName = '{username}'  AND e.EventNO = a.EventNO";
             return dbMan.ExecuteReader(query);
         }
 

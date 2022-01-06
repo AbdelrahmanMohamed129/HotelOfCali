@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-
 			this.show_btn = new System.Windows.Forms.Button();
 			this.edit_btn = new System.Windows.Forms.Button();
 			this.label1 = new System.Windows.Forms.Label();

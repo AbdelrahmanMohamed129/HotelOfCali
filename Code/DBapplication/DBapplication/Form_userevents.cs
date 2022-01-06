@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace DBapplication
 {
-	public partial class Form_checkrooms : Form
+	public partial class Form_userevents : Form
 	{
 		Controller controllerObj = new Controller();
-		public Form_checkrooms(string user)
+		public Form_userevents(string user)
 		{
 			InitializeComponent();
 			DataTable dt = controllerObj.SelectUserEvents(user);
