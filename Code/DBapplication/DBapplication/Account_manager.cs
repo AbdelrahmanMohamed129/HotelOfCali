@@ -34,5 +34,11 @@ namespace DBapplication
             Edit_Dependents EDep = new Edit_Dependents();
             EDep.Show();
         }
+
+        private void RecepVIEW_Click(object sender, EventArgs e)
+        {
+            Form_Receptionist RecForm = new Form_Receptionist();
+            RecForm.Show();
+        }
     }
 }

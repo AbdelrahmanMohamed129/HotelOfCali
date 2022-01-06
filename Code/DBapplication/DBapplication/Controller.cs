@@ -60,6 +60,18 @@ namespace DBapplication
             string query = $"DELETE FROM Events WHERE EventNO = {num}";
             return dbMan.ExecuteNonQuery(query);
         }
+
+        public int DeleteEmployee(string SSN)
+        {
+            string query = $"DELETE FROM Employee WHERE SSN = {SSN}";
+            return dbMan.ExecuteNonQuery(query);
+        }
+        public int DeleteEmployeeLoging(string Username)
+        {
+            string query = $"DELETE FROM LoginAccount WHERE UserName = '{Username}'";
+            
+            return dbMan.ExecuteNonQuery(query);
+        }
         //------------------------------------UPDATE QUERIES-------------------------
 
         public int UpdateRoomCleanStatus(string num)
@@ -140,6 +152,16 @@ namespace DBapplication
             return dbMan.ExecuteNonQuery(query);
         }
 
+        public int UpdateEMPRole(string SSN,string role)
+        {
+            string query = $"Update Employee set RoleID = '{role}' where SSN = {SSN}; ";
+            return dbMan.ExecuteNonQuery(query);
+        }
+        public int UpdateEMPSalary(string SSN, string Salary)
+        {
+            string query = $"Update Employee set Salary = '{Salary}' where SSN = {SSN}; ";
+            return dbMan.ExecuteNonQuery(query);
+        }
 
 
         public int SetEventCostNulls()
@@ -168,6 +190,11 @@ namespace DBapplication
             return dbMan.ExecuteReader(query);
         }
 
+        public DataTable SelectUserNameFromSSN(string SSN)
+        {
+            string query = $"SELECT UserName FROM Employee where SSN = {SSN} ;";
+            return dbMan.ExecuteReader(query);
+        }
 
         public DataTable SelectResDetails(string ssn)
         {
@@ -241,7 +268,12 @@ namespace DBapplication
         }
         public DataTable SelectRoleID()
         {
-            string query = $"SELECT distinct RoleID FROM Roles;";
+            string query = $"(SELECT RoleID FROM Roles) except (SELECT RoleID FROM Roles where RoleID = 'MGR' or RoleID = 'CEO');";
+            return dbMan.ExecuteReader(query);
+        }
+        public DataTable SelectSSNForEditEmp()
+        {
+            string query = $"select ssn from employee  except (SELECT e.SSN FROM Roles as r,Employee as e where (r.RoleID = 'MGR' or r.RoleID = 'CEO') and e.RoleID = r.RoleID);";
             return dbMan.ExecuteReader(query);
         }
         public DataTable SelectEmployeDEPSSN()

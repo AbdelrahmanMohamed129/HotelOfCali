@@ -44,11 +44,6 @@ namespace DBapplication
 
         }
 
-        private void Form_Receptionist_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void CheckRoomAvailableBTN_Click(object sender, EventArgs e)
         {
             try
@@ -116,21 +111,6 @@ namespace DBapplication
             }
         }
 
-        private void label6_VisibleChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void CheckBillBTN_Click(object sender, EventArgs e)
         {
             DataTable dt = controllerObject.SelectRoomPrice(BillRoomNoCombo.Text);
@@ -145,37 +125,9 @@ namespace DBapplication
 
         private void CheckEventBTN_Click(object sender, EventArgs e)
         {
-
+            Form_findevents Fevent = new Form_findevents();
+            Fevent.Show();
         }
         
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void CheckRoomNO_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void CheckUSSN_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void CheckEndDate_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }
