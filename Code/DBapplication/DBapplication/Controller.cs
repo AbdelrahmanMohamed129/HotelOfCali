@@ -94,6 +94,14 @@ namespace DBapplication
             return dbMan.ExecuteNonQuery(query);
         }
 
+        public int UpdateEventCostInBill(string user, string event_num)
+        {
+            string query = $"update Bill " +
+                $"set EventCost = EventCost + (select EventCost from [Events] where EventNO = {event_num}) " +
+                $"where BillNO = (select r.BillNO from Reservation r, [User] u where UserName = '{user}' AND u.SSN = r.USSN)";
+            return dbMan.ExecuteNonQuery(query);
+        }
+
 
         public int InsertRerservation(string StartDate, string EndDate, string USSN, string RoomNO, int N)
         {

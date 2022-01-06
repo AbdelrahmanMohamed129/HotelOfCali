@@ -41,6 +41,7 @@ namespace DBapplication
 					if (result1 == "1")
 					{
 						int result2 = controllerObj.InsertAttendEvent(username, password, comboBox1.Text);
+						int result3 = controllerObj.UpdateEventCostInBill(username, comboBox1.Text);
 						MessageBox.Show("Event Reserved Succesfully");
 					}
 					else
