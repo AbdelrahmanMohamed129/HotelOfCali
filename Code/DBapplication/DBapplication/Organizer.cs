@@ -33,5 +33,12 @@ namespace DBapplication
             Form_findevents Form_account = new Form_findevents();
             Form_account.Show();
         }
+
+		private void button1_Click(object sender, EventArgs e)
+		{
+            form myform = new form();
+            myform.Show();
+            this.Hide();
+		}
 	}
 }

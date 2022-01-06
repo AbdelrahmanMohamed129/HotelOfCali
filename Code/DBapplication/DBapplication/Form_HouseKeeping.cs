@@ -33,5 +33,14 @@ namespace DBapplication
             Form_housekeepingmarkrooms Form_account = new Form_housekeepingmarkrooms(hou_username);
             Form_account.Show();
         }
+
+		private void button1_Click(object sender, EventArgs e)
+		{
+            
+            form myform = new form();
+            myform.Show();
+            this.Hide();
+            
+        }
 	}
 }

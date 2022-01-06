@@ -32,6 +32,7 @@
 			this.btn_editevents = new System.Windows.Forms.Button();
 			this.btn_findevent = new System.Windows.Forms.Button();
 			this.label1 = new System.Windows.Forms.Label();
+			this.button1 = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// label_username
@@ -46,7 +47,7 @@
 			// 
 			// btn_editevents
 			// 
-			this.btn_editevents.Location = new System.Drawing.Point(194, 198);
+			this.btn_editevents.Location = new System.Drawing.Point(194, 185);
 			this.btn_editevents.Name = "btn_editevents";
 			this.btn_editevents.Size = new System.Drawing.Size(163, 57);
 			this.btn_editevents.TabIndex = 1;
@@ -56,7 +57,7 @@
 			// 
 			// btn_findevent
 			// 
-			this.btn_findevent.Location = new System.Drawing.Point(194, 325);
+			this.btn_findevent.Location = new System.Drawing.Point(194, 276);
 			this.btn_findevent.Name = "btn_findevent";
 			this.btn_findevent.Size = new System.Drawing.Size(163, 57);
 			this.btn_findevent.TabIndex = 2;
@@ -74,11 +75,22 @@
 			this.label1.TabIndex = 3;
 			this.label1.Text = "Welcome";
 			// 
+			// button1
+			// 
+			this.button1.Location = new System.Drawing.Point(194, 370);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(163, 57);
+			this.button1.TabIndex = 4;
+			this.button1.Text = "Logout";
+			this.button1.UseVisualStyleBackColor = true;
+			this.button1.Click += new System.EventHandler(this.button1_Click);
+			// 
 			// Organizer
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(560, 493);
+			this.Controls.Add(this.button1);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.btn_findevent);
 			this.Controls.Add(this.btn_editevents);
@@ -96,5 +108,6 @@
 		private System.Windows.Forms.Button btn_editevents;
 		private System.Windows.Forms.Button btn_findevent;
 		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.Button button1;
 	}
 }

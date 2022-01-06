@@ -178,5 +178,12 @@ namespace DBapplication
                 MessageBox.Show("!!An error occured try again!!");
             }
         }
-    }
+
+		private void button1_Click(object sender, EventArgs e)
+		{
+            form myform = new form();
+            myform.Show();
+            this.Hide();
+        }
+	}
 }

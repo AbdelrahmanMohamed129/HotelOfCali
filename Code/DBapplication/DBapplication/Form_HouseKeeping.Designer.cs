@@ -32,6 +32,7 @@
 			this.label_username = new System.Windows.Forms.Label();
 			this.btn_markrooms = new System.Windows.Forms.Button();
 			this.btn_checkrooms = new System.Windows.Forms.Button();
+			this.button1 = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -56,7 +57,7 @@
 			// 
 			// btn_markrooms
 			// 
-			this.btn_markrooms.Location = new System.Drawing.Point(206, 339);
+			this.btn_markrooms.Location = new System.Drawing.Point(206, 302);
 			this.btn_markrooms.Name = "btn_markrooms";
 			this.btn_markrooms.Size = new System.Drawing.Size(163, 57);
 			this.btn_markrooms.TabIndex = 7;
@@ -66,7 +67,7 @@
 			// 
 			// btn_checkrooms
 			// 
-			this.btn_checkrooms.Location = new System.Drawing.Point(206, 212);
+			this.btn_checkrooms.Location = new System.Drawing.Point(206, 194);
 			this.btn_checkrooms.Name = "btn_checkrooms";
 			this.btn_checkrooms.Size = new System.Drawing.Size(163, 57);
 			this.btn_checkrooms.TabIndex = 6;
@@ -74,11 +75,22 @@
 			this.btn_checkrooms.UseVisualStyleBackColor = true;
 			this.btn_checkrooms.Click += new System.EventHandler(this.btn_checkrooms_Click);
 			// 
+			// button1
+			// 
+			this.button1.Location = new System.Drawing.Point(206, 402);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(163, 57);
+			this.button1.TabIndex = 8;
+			this.button1.Text = "Logout";
+			this.button1.UseVisualStyleBackColor = true;
+			this.button1.Click += new System.EventHandler(this.button1_Click);
+			// 
 			// Form_HouseKeeping
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(571, 533);
+			this.Controls.Add(this.button1);
 			this.Controls.Add(this.btn_markrooms);
 			this.Controls.Add(this.btn_checkrooms);
 			this.Controls.Add(this.label1);
@@ -96,5 +108,6 @@
 		private System.Windows.Forms.Label label_username;
 		private System.Windows.Forms.Button btn_markrooms;
 		private System.Windows.Forms.Button btn_checkrooms;
+		private System.Windows.Forms.Button button1;
 	}
 }

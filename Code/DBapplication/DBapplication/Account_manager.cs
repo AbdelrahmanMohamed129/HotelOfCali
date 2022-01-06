@@ -40,5 +40,12 @@ namespace DBapplication
             Form_Receptionist RecForm = new Form_Receptionist();
             RecForm.Show();
         }
-    }
+
+		private void button1_Click(object sender, EventArgs e)
+		{
+            form myform = new form();
+            myform.Show();
+            this.Hide();
+        }
+	}
 }

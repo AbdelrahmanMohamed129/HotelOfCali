@@ -212,6 +212,13 @@ namespace DBapplication
             Form_userevents myform = new Form_userevents(userName);
             myform.Show();
 		}
+
+		private void button2_Click(object sender, EventArgs e)
+		{
+            form myform = new form();
+            myform.Show();
+            this.Hide();
+        }
 	}
 
         

@@ -135,6 +135,7 @@ namespace DBapplication
                     //user(guest) form
                     Form_useraccount Form_account = new Form_useraccount(text_username.Text, text_password.Text);
                     Form_account.Show();
+                    this.Visible = false;
                 }
 
 

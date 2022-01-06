@@ -135,5 +135,12 @@ namespace DBapplication
             Form_RecepResEvent recResEvent = new Form_RecepResEvent();
             recResEvent.Show();
         }
-    }
+
+		private void button1_Click(object sender, EventArgs e)
+		{
+            form myform = new form();
+            myform.Show();
+            this.Hide();
+        }
+	}
 }
