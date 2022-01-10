@@ -12,7 +12,9 @@ namespace DBapplication
     {
 
 
+
         static string DB_Connection_String = @"Data Source=DESKTOP-FGA4H4Q;Initial Catalog=Hotel_Project;Integrated Security=True";
+
 
 
         SqlConnection myConnection;
