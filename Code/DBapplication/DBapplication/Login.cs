@@ -160,10 +160,15 @@ namespace DBapplication
             }
         }
 
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
 
 
 
-		/*                 *******************     Switch Form      ****************** 
+
+        /*                 *******************     Switch Form      ****************** 
                     
         private void switchButton_Click(object sender, EventArgs e)
         {
@@ -172,7 +177,7 @@ namespace DBapplication
         }
         */
 
-		/*   ****************************** Only characters can be inserted into textbox ***************
+        /*   ****************************** Only characters can be inserted into textbox ***************
          * char cr = e.KeyChar;
          * if(!char.IsLetter(cr) && cr != 8 && cr !=46) {e.Handled = true;}
          * 
@@ -186,7 +191,7 @@ namespace DBapplication
          */
 
 
-		/*                *****************     Check Validations      ****************
+        /*                *****************     Check Validations      ****************
                      
         private void insertButton_Click(object sender, EventArgs e)
         {
@@ -221,7 +226,7 @@ namespace DBapplication
 
 
 
-		/*                *****************     ComboBox intialization      ****************
+        /*                *****************     ComboBox intialization      ****************
                          
         public Form2()
         {
@@ -232,5 +237,5 @@ namespace DBapplication
             comboBox1.Items.Add("Female");
         }
         */
-	}
+    }
 }
