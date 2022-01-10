@@ -124,6 +124,15 @@ namespace DBapplication
 
             if (ok)
             {
+
+                int existencecheck = controllerObject.CheckIfEmpExists(SSNMGR.Text);
+                int existencecheck1 = controllerObject.CheckLoginPrimary(UsernameMGR.Text);
+                if (existencecheck != 0 && existencecheck1 != 0)
+                {
+                    MessageBox.Show("Failed to create account. Account already exists");
+                    return;
+                }
+
                 string username = UsernameMGR.Text;
                 if (username[0] == 'E' && username[1] == 'M' && username[2] == 'P' && username[3] == '_')
                 {
@@ -191,5 +200,108 @@ namespace DBapplication
             Form_changepassword newform = new Form_changepassword(User_Name);
             newform.Show();
         }
-	}
+
+        private void ADDCEO_Click(object sender, EventArgs e)
+        {
+            bool ok = (CEOAddresstxt.Text.Length > 0) && (CEOBirthdate.Text.Length > 0) && (CEOFName.Text.Length > 0) && (CEOgenderCombo.Text.Length > 0) && (CEOLNametxt.Text.Length > 0) && (CEOMiddleName.Text.Length > 0) && (CEOMobile.Text.Length > 0) && (CEOPassWordtxt.Text.Length > 0) && (CEOSalarytxt.Text.Length > 0) && (CEOSSNcombo.Text.Length > 0) && (CEOUserNametxt.Text.Length > 0);
+
+            if (ok)
+            {
+
+                int existencecheck = controllerObject.CheckIfEmpExists(CEOSSNcombo.Text);
+                int existencecheck1 = controllerObject.CheckLoginPrimary(CEOUserNametxt.Text);
+                if (existencecheck != 0 && existencecheck1 != 0)
+                {
+                    MessageBox.Show("Failed to create account. Account already exists");
+                    return;
+                }
+
+                string username = CEOUserNametxt.Text;
+                if (username[0] == 'E' && username[1] == 'M' && username[2] == 'P' && username[3] == '_')
+                {
+
+                    int check1 = controllerObject.InsertEmpAccount(CEOUserNametxt.Text, CEOPassWordtxt.Text);
+                    if (check1 != 1)
+                    {
+                        MessageBox.Show("Adding CEO failed due to error in username or password!");
+                        return;
+                    }
+
+                    int check2 = controllerObject.InsertEmployee(CEOFName.Text, CEOMiddleName.Text, CEOLNametxt.Text, CEOSSNcombo.Text, "MGR", CEOgenderCombo.Text, CEOBirthdate.Text, CEOAddresstxt.Text, CEOMobile.Text, "NULL", CEOSalarytxt.Text, CEOUserNametxt.Text);
+                    if (check2 == 1)
+                    {
+                        MessageBox.Show("CEO added successfully!");
+                    }
+                    else
+                        MessageBox.Show("Adding CEO failed due to error in the employee info!");
+                }
+                else
+                {
+                    MessageBox.Show("Error! The username should start with 'EMP_' ");
+                }
+            }
+            else
+                MessageBox.Show("Error! All data should be filled.");
+        }
+
+        private void CEOSSNcombo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char cr = e.KeyChar;
+            if (!char.IsDigit(cr) && cr != 8 && cr != 46) 
+            { 
+                e.Handled = true;
+                MessageBox.Show("Error! wrong input.");
+            }
+        }
+
+        private void CEOMobile_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char cr = e.KeyChar;
+            if (!char.IsDigit(cr) && cr != 8 && cr != 46)
+            {
+                e.Handled = true;
+                MessageBox.Show("Error! wrong input.");
+            }
+        }
+
+        private void CEOSalarytxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char cr = e.KeyChar;
+            if (!char.IsDigit(cr) && cr != 8 && cr != 46)
+            {
+                e.Handled = true;
+                MessageBox.Show("Error! wrong input.");
+            }
+        }
+
+        private void CEOFName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char cr = e.KeyChar;
+            if (!char.IsLetter(cr) && cr != 8 && cr != 46)
+            {
+                e.Handled = true;
+                MessageBox.Show("Error! wrong input.");
+            }
+        }
+
+        private void CEOMiddleName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char cr = e.KeyChar;
+            if (!char.IsLetter(cr) && cr != 8 && cr != 46)
+            {
+                e.Handled = true;
+                MessageBox.Show("Error! wrong input.");
+            }
+        }
+
+        private void CEOLNametxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char cr = e.KeyChar;
+            if (!char.IsLetter(cr) && cr != 8 && cr != 46)
+            {
+                e.Handled = true;
+                MessageBox.Show("Error! wrong input.");
+            }
+        }
+    }
 }

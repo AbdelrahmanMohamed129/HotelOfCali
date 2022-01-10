@@ -44,7 +44,7 @@ namespace DBapplication
             if (ok)
             {
 
-                int existencecheck = controllerObject.CheckIfUserExists(SSNEmpTxt.Text);
+                int existencecheck = controllerObject.CheckIfEmpExists(SSNEmpTxt.Text);
                 int existencecheck1 = controllerObject.CheckLoginPrimary(UserNameEmpTxt.Text);
                 if (existencecheck != 0 && existencecheck1 != 0)
                 {

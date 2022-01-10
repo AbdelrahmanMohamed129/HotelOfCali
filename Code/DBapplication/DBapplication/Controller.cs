@@ -511,6 +511,12 @@ namespace DBapplication
             return (int)dbMan.ExecuteScalar(query);
         }
 
+        public int CheckIfEmpExists(string SSN)
+        {
+            string query = $"select count(*) from Employee where SSN = {SSN}";
+            return (int)dbMan.ExecuteScalar(query);
+        }
+
         public int CheckLoginPrimary(string user)
         {
             string query = $"select count(*) from LoginAccount where UserName = '{user}'";
