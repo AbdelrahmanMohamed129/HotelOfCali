@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Data;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace DBapplication
 {
@@ -30,12 +31,21 @@ namespace DBapplication
         //------------------------------------------Insert QUERIES---------------------------------------------
         public int InsertAccount(string fname, string minit, string lname, string username, string password, string gender, string bdate, string ssn, string mobile, string address)
         {
-            string query = $"Insert into LoginAccount (UserName, Password) values('{username}', '{password}'); ";
-            int query_result = dbMan.ExecuteNonQuery(query);
+            try
+            {
+                string query = $"EXEC InsertAccount @username='{username}', @password='{password}'";
+                int query_result = dbMan.ExecuteNonQuery(query);
 
-            InsertUser(fname, minit, lname, username, gender, bdate, ssn, mobile, address);
+                InsertUser(fname, minit, lname, username, gender, bdate, ssn, mobile, address);
 
-            return query_result;
+                return query_result;
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("ERROR");
+                return 0;
+            }
+            
         }
 
         private int InsertUser(string fname, string minit, string lname, string username, string gender, string bdate, string ssn, string mobile, string address)
@@ -194,6 +204,12 @@ namespace DBapplication
         public int UpdateEMPSalary(string SSN, string Salary)
         {
             string query = $"Update Employee set Salary = '{Salary}' where SSN = {SSN}; ";
+            return dbMan.ExecuteNonQuery(query);
+        }
+
+        public int UpdatePassowrd(string username, string newpassword)
+        {
+            string query = $"EXEC UpdatePassword @username = '{username}', @newpassword = '{newpassword}'";
             return dbMan.ExecuteNonQuery(query);
         }
 
@@ -461,6 +477,12 @@ namespace DBapplication
         public int ExistRoomToReserve(string RoomType, string RoomView, string startDate, string endDate)
         {
             string query = $"select 1 from Reservation where (select RoomNO from Room as R, RoomType as RT where RT.RoomType = '{RoomType}' and RT.RoomView = '{RoomView}' and R.RoomType = RT.RoomTypeID) = RoomNO and (EndDate < '{startDate}' OR StartDate > '{endDate}');";
+            return (int)dbMan.ExecuteScalar(query);
+        }
+
+        public int CheckIfUserExists(string ssn)
+        {
+            string query = $"CheckIfUserExists @user_ssn = '{ssn}'";
             return (int)dbMan.ExecuteScalar(query);
         }
 

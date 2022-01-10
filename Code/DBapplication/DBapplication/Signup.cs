@@ -33,6 +33,13 @@ namespace DBapplication
 
 			try
 			{
+				int existencecheck = controllerObject.CheckIfUserExists(text_ssn.Text);
+				if (existencecheck != 0)
+				{
+					MessageBox.Show("Failed to create account. Account already exists");
+					return;
+				}
+
 				int result = controllerObject.InsertAccount(text_fname.Text, text_minit.Text, text_lname.Text, text_username.Text, text_password.Text, gender, bdate.Text.ToString(), text_ssn.Text, text_mobile.Text, text_address.Text);
 
 				if (result == 0)
@@ -43,6 +50,7 @@ namespace DBapplication
 				{
 					MessageBox.Show("Account added successfully");
 				}
+
 			}
 			catch 
 			{

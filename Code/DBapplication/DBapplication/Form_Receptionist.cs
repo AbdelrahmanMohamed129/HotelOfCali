@@ -14,9 +14,12 @@ namespace DBapplication
     {
 
         Controller controllerObject = new Controller();
-        public Form_Receptionist()
+        string username;
+        public Form_Receptionist(string user)
         {
             InitializeComponent();
+
+            username = user;
 
             DataTable dt = controllerObject.SelectRoomType();
             CheckRoomTypeCombo.DataSource = dt;
@@ -141,6 +144,12 @@ namespace DBapplication
             form myform = new form();
             myform.Show();
             this.Hide();
+        }
+
+		private void button3_Click(object sender, EventArgs e)
+		{
+            Form_changepassword newform = new Form_changepassword(username);
+            newform.Show();
         }
 	}
 }

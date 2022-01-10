@@ -81,6 +81,12 @@
     <Compile Include="Form_CEO.Designer.cs">
       <DependentUpon>Form_CEO.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_changepassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_changepassword.Designer.cs">
+      <DependentUpon>Form_changepassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_checkrooms.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -176,6 +182,9 @@
     <EmbeddedResource Include="Form_CEO.resx">
       <DependentUpon>Form_CEO.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form_changepassword.resx">
+      <DependentUpon>Form_changepassword.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_checkrooms.resx">
       <DependentUpon>Form_checkrooms.cs</DependentUpon>
     </EmbeddedResource>
@@ -246,6 +255,10 @@
     <None Include="Resources\pexels-daniel-frese-2983489 %281%29.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>if exist "$(TargetPath).locked" del "$(TargetPath).locked"
+if exist "$(TargetPath)" if not exist "$(TargetPath).locked" move "$(TargetPath)" "$(TargetPath).locked"</PreBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

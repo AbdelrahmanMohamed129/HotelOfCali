@@ -63,6 +63,7 @@
 			this.DelMGRCombo = new System.Windows.Forms.ComboBox();
 			this.label2 = new System.Windows.Forms.Label();
 			this.button1 = new System.Windows.Forms.Button();
+			this.button2 = new System.Windows.Forms.Button();
 			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			this.SuspendLayout();
@@ -70,7 +71,7 @@
 			// RecepView
 			// 
 			this.RecepView.Location = new System.Drawing.Point(64, 270);
-			this.RecepView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.RecepView.Margin = new System.Windows.Forms.Padding(4);
 			this.RecepView.Name = "RecepView";
 			this.RecepView.Size = new System.Drawing.Size(155, 42);
 			this.RecepView.TabIndex = 0;
@@ -81,7 +82,7 @@
 			// MgrView
 			// 
 			this.MgrView.Location = new System.Drawing.Point(64, 209);
-			this.MgrView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.MgrView.Margin = new System.Windows.Forms.Padding(4);
 			this.MgrView.Name = "MgrView";
 			this.MgrView.Size = new System.Drawing.Size(155, 42);
 			this.MgrView.TabIndex = 1;
@@ -92,7 +93,7 @@
 			// OrgView
 			// 
 			this.OrgView.Location = new System.Drawing.Point(64, 331);
-			this.OrgView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.OrgView.Margin = new System.Windows.Forms.Padding(4);
 			this.OrgView.Name = "OrgView";
 			this.OrgView.Size = new System.Drawing.Size(155, 42);
 			this.OrgView.TabIndex = 2;
@@ -102,8 +103,8 @@
 			// 
 			// HouView
 			// 
-			this.HouView.Location = new System.Drawing.Point(64, 399);
-			this.HouView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.HouView.Location = new System.Drawing.Point(64, 460);
+			this.HouView.Margin = new System.Windows.Forms.Padding(4);
 			this.HouView.Name = "HouView";
 			this.HouView.Size = new System.Drawing.Size(155, 42);
 			this.HouView.TabIndex = 3;
@@ -157,9 +158,9 @@
 			this.groupBox1.Controls.Add(this.label3);
 			this.groupBox1.Controls.Add(this.label12);
 			this.groupBox1.Location = new System.Drawing.Point(467, 15);
-			this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
 			this.groupBox1.Size = new System.Drawing.Size(880, 251);
 			this.groupBox1.TabIndex = 6;
 			this.groupBox1.TabStop = false;
@@ -384,9 +385,9 @@
 			this.groupBox2.Controls.Add(this.DelMGRCombo);
 			this.groupBox2.Controls.Add(this.label2);
 			this.groupBox2.Location = new System.Drawing.Point(741, 288);
-			this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
 			this.groupBox2.Name = "groupBox2";
-			this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
 			this.groupBox2.Size = new System.Drawing.Size(308, 153);
 			this.groupBox2.TabIndex = 7;
 			this.groupBox2.TabStop = false;
@@ -395,7 +396,7 @@
 			// FireMGR
 			// 
 			this.FireMGR.Location = new System.Drawing.Point(97, 87);
-			this.FireMGR.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.FireMGR.Margin = new System.Windows.Forms.Padding(4);
 			this.FireMGR.Name = "FireMGR";
 			this.FireMGR.Size = new System.Drawing.Size(112, 49);
 			this.FireMGR.TabIndex = 80;
@@ -423,7 +424,7 @@
 			// 
 			// button1
 			// 
-			this.button1.Location = new System.Drawing.Point(64, 468);
+			this.button1.Location = new System.Drawing.Point(64, 521);
 			this.button1.Margin = new System.Windows.Forms.Padding(4);
 			this.button1.Name = "button1";
 			this.button1.Size = new System.Drawing.Size(155, 42);
@@ -432,11 +433,22 @@
 			this.button1.UseVisualStyleBackColor = true;
 			this.button1.Click += new System.EventHandler(this.button1_Click);
 			// 
+			// button2
+			// 
+			this.button2.Location = new System.Drawing.Point(67, 394);
+			this.button2.Name = "button2";
+			this.button2.Size = new System.Drawing.Size(152, 47);
+			this.button2.TabIndex = 82;
+			this.button2.Text = "Change Password";
+			this.button2.UseVisualStyleBackColor = true;
+			this.button2.Click += new System.EventHandler(this.button2_Click);
+			// 
 			// Form_CEO
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1423, 647);
+			this.Controls.Add(this.button2);
 			this.Controls.Add(this.button1);
 			this.Controls.Add(this.groupBox2);
 			this.Controls.Add(this.groupBox1);
@@ -446,7 +458,7 @@
 			this.Controls.Add(this.OrgView);
 			this.Controls.Add(this.MgrView);
 			this.Controls.Add(this.RecepView);
-			this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.Margin = new System.Windows.Forms.Padding(4);
 			this.Name = "Form_CEO";
 			this.Text = "Form_CEO";
 			this.groupBox1.ResumeLayout(false);
@@ -495,5 +507,6 @@
         private System.Windows.Forms.ComboBox DelMGRCombo;
         private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.Button button2;
 	}
 }

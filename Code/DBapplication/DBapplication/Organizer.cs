@@ -40,5 +40,11 @@ namespace DBapplication
             myform.Show();
             this.Hide();
 		}
+
+		private void button2_Click(object sender, EventArgs e)
+		{
+            Form_changepassword newform = new Form_changepassword(org_username);
+            newform.Show();
+        }
 	}
 }

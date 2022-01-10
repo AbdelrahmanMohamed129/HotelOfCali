@@ -12,10 +12,13 @@ namespace DBapplication
 {
 	public partial class Form_manager : Form
 	{
-		public Form_manager()
+        string username;
+		public Form_manager(string user)
 		{
 			InitializeComponent();
-		}
+            username = user;
+
+        }
 
         private void AddRemoveRoomsBtn_Click(object sender, EventArgs e)
         {
@@ -37,7 +40,7 @@ namespace DBapplication
 
         private void RecepVIEW_Click(object sender, EventArgs e)
         {
-            Form_Receptionist RecForm = new Form_Receptionist();
+            Form_Receptionist RecForm = new Form_Receptionist(username);
             RecForm.Show();
         }
 
@@ -46,6 +49,12 @@ namespace DBapplication
             form myform = new form();
             myform.Show();
             this.Hide();
+        }
+
+		private void button2_Click(object sender, EventArgs e)
+		{
+            Form_changepassword newform = new Form_changepassword(username);
+            newform.Show();
         }
 	}
 }

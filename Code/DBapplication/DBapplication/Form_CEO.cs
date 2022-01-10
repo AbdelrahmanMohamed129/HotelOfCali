@@ -26,13 +26,13 @@ namespace DBapplication
 
         private void MgrView_Click(object sender, EventArgs e)
         {
-            Form_manager MgrForm = new Form_manager();
+            Form_manager MgrForm = new Form_manager(User_Name);
             MgrForm.Show();
         }
 
         private void RecepView_Click(object sender, EventArgs e)
         {
-            Form_Receptionist RecForm = new Form_Receptionist();
+            Form_Receptionist RecForm = new Form_Receptionist(User_Name);
             RecForm.Show();
         }
 
@@ -184,6 +184,12 @@ namespace DBapplication
             form myform = new form();
             myform.Show();
             this.Hide();
+        }
+
+		private void button2_Click(object sender, EventArgs e)
+		{
+            Form_changepassword newform = new Form_changepassword(User_Name);
+            newform.Show();
         }
 	}
 }

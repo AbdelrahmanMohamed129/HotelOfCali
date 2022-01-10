@@ -57,6 +57,7 @@ namespace DBapplication
 			this.groupBox4 = new System.Windows.Forms.GroupBox();
 			this.btn_myevents = new System.Windows.Forms.Button();
 			this.button2 = new System.Windows.Forms.Button();
+			this.button1 = new System.Windows.Forms.Button();
 			this.groupBox1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			this.groupBox2.SuspendLayout();
@@ -330,7 +331,7 @@ namespace DBapplication
 			// 
 			// button2
 			// 
-			this.button2.Location = new System.Drawing.Point(423, 440);
+			this.button2.Location = new System.Drawing.Point(496, 440);
 			this.button2.Name = "button2";
 			this.button2.Size = new System.Drawing.Size(134, 55);
 			this.button2.TabIndex = 8;
@@ -338,11 +339,22 @@ namespace DBapplication
 			this.button2.UseVisualStyleBackColor = true;
 			this.button2.Click += new System.EventHandler(this.button2_Click);
 			// 
+			// button1
+			// 
+			this.button1.Location = new System.Drawing.Point(306, 440);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(134, 55);
+			this.button1.TabIndex = 9;
+			this.button1.Text = "Change Password";
+			this.button1.UseVisualStyleBackColor = true;
+			this.button1.Click += new System.EventHandler(this.button1_Click_1);
+			// 
 			// Form_useraccount
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1039, 530);
+			this.Controls.Add(this.button1);
 			this.Controls.Add(this.button2);
 			this.Controls.Add(this.groupBox4);
 			this.Controls.Add(this.groupBox3);
@@ -392,5 +404,6 @@ namespace DBapplication
 		private System.Windows.Forms.GroupBox groupBox4;
 		private System.Windows.Forms.Button btn_myevents;
 		private System.Windows.Forms.Button button2;
+		private System.Windows.Forms.Button button1;
 	}
 }

@@ -219,6 +219,12 @@ namespace DBapplication
             myform.Show();
             this.Hide();
         }
+
+		private void button1_Click_1(object sender, EventArgs e)
+		{
+            Form_changepassword newform = new Form_changepassword(userName);
+            newform.Show();
+        }
 	}
 
         

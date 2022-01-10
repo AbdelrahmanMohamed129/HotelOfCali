@@ -103,12 +103,12 @@ namespace DBapplication
     
                     if (role_id.Rows[0][0].ToString() == "MGR")
                     {
-                        Form_manager Form_account = new Form_manager();
+                        Form_manager Form_account = new Form_manager(username);
                         Form_account.Show();
                     }
                     else if (role_id.Rows[0][0].ToString() == "RecEMP")
                     {
-                        Form_Receptionist form_account = new Form_Receptionist();
+                        Form_Receptionist form_account = new Form_Receptionist(username);
                         form_account.Show();
                     }
                     else if (role_id.Rows[0][0].ToString() == "HouEMP")
