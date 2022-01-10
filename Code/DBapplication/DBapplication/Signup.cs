@@ -34,7 +34,8 @@ namespace DBapplication
 			try
 			{
 				int existencecheck = controllerObject.CheckIfUserExists(text_ssn.Text);
-				if (existencecheck != 0)
+				int existencecheck1 = controllerObject.CheckLoginPrimary(text_username.Text);
+				if (existencecheck != 0 && existencecheck1 != 0)
 				{
 					MessageBox.Show("Failed to create account. Account already exists");
 					return;

@@ -37,12 +37,20 @@ namespace DBapplication
 
         private void AddDependentsBtn_Click(object sender, EventArgs e)
         {
-            int check = controllerObject.InsertDependents(FNameDEPTxt.Text, LNameDEPTxt.Text, ESSNDEPCombo.Text, GenderRB.Text, RelationDEPTxt.Text);
-            if (check == 1)
+            int result = controllerObject.CheckDependentsPrimary(FNameDEPTxt.Text, LNameDEPTxt.Text, ESSNDEPCombo.Text);
+            if (result == 0)
             {
-                MessageBox.Show("Dependent inserted successfully");
+                int check = controllerObject.InsertDependents(FNameDEPTxt.Text, LNameDEPTxt.Text, ESSNDEPCombo.Text, GenderRB.Text, RelationDEPTxt.Text);
+                if (check == 1)
+                {
+                    MessageBox.Show("Dependent inserted successfully");
+                }
+                else MessageBox.Show("Dependent insertement failed");
             }
-            else MessageBox.Show("Dependent insertement failed");
+            else
+            {
+                MessageBox.Show("Dependent already exists");
+            }
         }
 
         private void RemoveDepBtn_Click(object sender, EventArgs e)

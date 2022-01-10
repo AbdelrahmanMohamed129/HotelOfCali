@@ -38,9 +38,20 @@ namespace DBapplication
         {
 
             bool ok = (FNameEmpTxt.Text.Length > 0) && (MinitEmpTxt.Text.Length > 0) && (MinitEmpTxt.Text.Length > 0) && (LNameEmpTxt.Text.Length > 0) && (SSNEmpTxt.Text.Length > 0) && (RoleIDEmpCombo.Text.Length > 0) && (GenderEmpCombo.Text.Length > 0) && (bdateEmpDate.Text.Length > 0) && (AddressEmpTxt.Text.Length > 0) && (MobileEMpTxt.Text.Length > 0) && (SuperSSNCombo.Text.Length > 0) && (SalaryEmpTxt.Text.Length > 0) && (UserNameEmpTxt.Text.Length > 0);
+            
+           
 
             if (ok)
             {
+
+                int existencecheck = controllerObject.CheckIfUserExists(SSNEmpTxt.Text);
+                int existencecheck1 = controllerObject.CheckLoginPrimary(UserNameEmpTxt.Text);
+                if (existencecheck != 0 && existencecheck1 != 0)
+                {
+                    MessageBox.Show("Failed to create account. Account already exists");
+                    return;
+                }
+
                 string username = UserNameEmpTxt.Text;
                 if (username[0] == 'E' && username[1] == 'M' && username[2] == 'P' && username[3] == '_')
                 {

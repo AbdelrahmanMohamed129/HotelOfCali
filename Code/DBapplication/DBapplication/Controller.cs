@@ -45,7 +45,6 @@ namespace DBapplication
                 MessageBox.Show("ERROR");
                 return 0;
             }
-            
         }
 
         public int InsertCompanion(string fname, string minit, string lname, string ssn, string gender, string bdate, string relation)
@@ -57,23 +56,46 @@ namespace DBapplication
 
         private int InsertUser(string fname, string minit, string lname, string username, string gender, string bdate, string ssn, string mobile, string address)
         {
-            string query = $"INSERT INTO [User](FName, Minit, LName, SSN, Gender, BirthDate, Address, MobileNO, UserName) " +
-                $"Values('{fname}', '{minit}', '{lname}', {ssn}, '{gender}', '{bdate}', '{address}', {mobile}, '{username}')";
+            try
+            {
+                string query = $"INSERT INTO [User](FName, Minit, LName, SSN, Gender, BirthDate, Address, MobileNO, UserName) " +
+                               $"Values('{fname}', '{minit}', '{lname}', {ssn}, '{gender}', '{bdate}', '{address}', {mobile}, '{username}')";
 
-            return dbMan.ExecuteNonQuery(query);
+                return dbMan.ExecuteNonQuery(query);
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("User already exist");
+                return 0;
+            }
         }
-
 
         public int InsertEvent(string cost, string description, string startdate, string enddate)
         {
-            string query = $"insert into Events (EventCost,Description,StartDate,EndDate) " +
+            try
+            {
+                string query = $"insert into Events (EventCost,Description,StartDate,EndDate) " +
                 $"values({cost}, '{description}', '{startdate}', '{enddate}')";
-            return dbMan.ExecuteNonQuery(query);
+                return dbMan.ExecuteNonQuery(query);
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Event already exist");
+                return 0;
+            }
         }
         public int InsertRoom(string Roomtype, string ssn)
         {
-            string query = $"insert into room (RoomType,Occupancy,Cleaned,ESSN) values ('{Roomtype}',0,'T',{ssn});";
-            return dbMan.ExecuteNonQuery(query);
+            try
+            {
+                string query = $"insert into room (RoomType,Occupancy,Cleaned,ESSN) values ('{Roomtype}',0,'T',{ssn});";
+                return dbMan.ExecuteNonQuery(query);
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Room already exist");
+                return 0;
+            }
         }
 
         public DataTable CheckUserToReserveEvent(string username, string num)
@@ -85,12 +107,20 @@ namespace DBapplication
 
         public int InsertAttendEvent(string username, string password, string num)
         {
-            string ssn = SelectUserSSN(username, password).Rows[0][0].ToString();
-            string query = $"Insert into Attend (USSN, EventNO) values ('{ssn}','{num}')";
-            return dbMan.ExecuteNonQuery(query);
+            try
+            {
+                string ssn = SelectUserSSN(username, password).Rows[0][0].ToString();
+                string query = $"Insert into Attend (USSN, EventNO) values ('{ssn}','{num}')";
+                return dbMan.ExecuteNonQuery(query);
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("User already attends this event");
+                return 0;
+            }
         }
 
-        //------------------------------------DELETE QUERIES-------------------------
+        //-------------------------DELETE QUERIES-------------------------
         public int DeleteEvent(string num)
         {
             string query = $"DELETE FROM Events WHERE EventNO = {num}";
@@ -115,7 +145,7 @@ namespace DBapplication
             
             return dbMan.ExecuteNonQuery(query);
         }
-        //------------------------------------UPDATE QUERIES-------------------------
+        //-------------------------UPDATE QUERIES-------------------------
 
         public int UpdateRoomCleanStatus(string num)
         {
@@ -134,30 +164,55 @@ namespace DBapplication
 
         public int InsertRerservation(string StartDate, string EndDate, string USSN, string RoomNO, int N)
         {
-            int price = SelectPriceForBill(RoomNO);
+            try
+            {
+                int price = SelectPriceForBill(RoomNO);
 
-            price = price * N;
-            InsertBill(price.ToString());
-            SetEventCostNulls();
+                price = price * N;
+                InsertBill(price.ToString());
+                SetEventCostNulls();
 
-            int temp = SelectLastBillNO();
+                int temp = SelectLastBillNO();
 
-            string query = $"INSERT INTO Reservation (StartDate,EndDate,USSN,RoomNO,BillNO)  Values ('{StartDate}','{EndDate}',{USSN},{RoomNO},{temp});";
+                string query = $"INSERT INTO Reservation (StartDate,EndDate,USSN,RoomNO,BillNO)  Values ('{StartDate}','{EndDate}',{USSN},{RoomNO},{temp});";
 
-            SetOccupancy(RoomNO);
+                SetOccupancy(RoomNO);
 
-            return dbMan.ExecuteNonQuery(query);
+                return dbMan.ExecuteNonQuery(query);
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Room already reserved!");
+                return 0;
+            }
+
         }
         public int InsertBill(string RoomCost)
         {
-            string query = $"INSERT INTO Bill (RoomCost) Values ({RoomCost});";
-            SetEventCostNulls();
-            return dbMan.ExecuteNonQuery(query);
+            try
+            {
+                string query = $"INSERT INTO Bill (RoomCost) Values ({RoomCost});";
+                SetEventCostNulls();
+                return dbMan.ExecuteNonQuery(query);
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("ERROR");
+                return 0;
+            }
         }
         public int InsertDependents(string FName,string LName,string ESSN,string gender,string relationship)
         {
-            string query = $"INSERT INTO Dependents Values ('{FName}' ,'{LName}' , {ESSN} ,'{gender}' , '{relationship}');";
-            return dbMan.ExecuteNonQuery(query);
+            try
+            {
+                string query = $"INSERT INTO Dependents Values ('{FName}' ,'{LName}' , {ESSN} ,'{gender}' , '{relationship}');";
+                return dbMan.ExecuteNonQuery(query);
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Dependant already exists");
+                return 0;
+            }
         }
         public int InsertEmployee(string FName, string Minit,string LName, string SSN,string roleid,string gender, string BDate, string Address, string MobileNO, string SuperSSN, string salary, string username)
         {
@@ -455,6 +510,18 @@ namespace DBapplication
                 $"from Attend a,[User] u,[Events] e " +
                 $"where u.SSN = a.USSN AND u.UserName = '{username}'  AND e.EventNO = a.EventNO";
             return dbMan.ExecuteReader(query);
+        }
+
+        public int CheckDependentsPrimary(string Fname,string Lname,string ESSN)
+        {
+            string query = $"select count(*) from Dependents where Fname ='{Fname}' and LName = '{Lname}' and ESSN = {ESSN}";
+            return (int)dbMan.ExecuteScalar(query);
+        }
+
+        public int CheckLoginPrimary(string user)
+        {
+            string query = $"select count(*) from LoginAccount where UserName = '{user}'";
+            return (int)dbMan.ExecuteScalar(query);
         }
 
         //------------------------------------------Count QUERIES---------------------------------------------
