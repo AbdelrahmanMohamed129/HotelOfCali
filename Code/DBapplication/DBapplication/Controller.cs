@@ -331,13 +331,16 @@ namespace DBapplication
         //For the combox
         public DataTable SelectAvailableRoomNumber(string RoomType, string RoomView, string startDate, string endDate)
         {
-            string query = $"(select RoomNO from Reservation where (select RoomNO from Room as R, RoomType as RT where RT.RoomType = '{RoomType}' and RT.RoomView = '{RoomView}' and R.RoomType = RT.RoomTypeID) = RoomNO and (EndDate <= '{startDate}' OR StartDate >= '{endDate}')) union (select RoomNO from Room as R, RoomType as RT where RT.RoomType = '{RoomType}' and RT.RoomView = '{RoomView}' and R.RoomType = RT.RoomTypeID and R.Occupancy = 0);";
+            string query = $"EXEC SelectAvailableRoomNum @RoomType = '{RoomType}', @RoomView = '{RoomView}', @startDate = '{startDate}', @endDate = '{endDate}'";
+            // string query = $"(select RoomNO from Reservation where (select RoomNO from Room as R, RoomType as RT where RT.RoomType = '{RoomType}' and RT.RoomView = '{RoomView}' and R.RoomType = RT.RoomTypeID) = RoomNO and (EndDate <= '{startDate}' OR StartDate >= '{endDate}')) union (select RoomNO from Room as R, RoomType as RT where RT.RoomType = '{RoomType}' and RT.RoomView = '{RoomView}' and R.RoomType = RT.RoomTypeID and R.Occupancy = 0);";
             return dbMan.ExecuteReader(query);
         }
 
         public DataTable SelectAvailableRoomNumberPrice(string RoomType, string RoomView, string startDate, string endDate, string price)
         {
-            string query = $"(select RoomNO from Reservation where (select RoomNO from Room as R, RoomType as RT where RT.RoomType = '{RoomType}' and RT.RoomView = '{RoomView}' and R.RoomType = RT.RoomTypeID and RT.Price <= {price}) = RoomNO and (EndDate <= '{startDate}' OR StartDate >= '{endDate}')) union (select RoomNO from Room as R, RoomType as RT where RT.RoomType = '{RoomType}' and RT.RoomView = '{RoomView}' and R.RoomType = RT.RoomTypeID and R.Occupancy = 0  and RT.Price <= {price});";
+            string query = $"EXEC SelectAvailableRoomNumberPrice @RoomType = '{RoomType}', @RoomView = '{RoomView}', @startDate = '{startDate}', @endDate = '{endDate}', @price = '{price}'";
+
+            //string query = $"(select RoomNO from Reservation where (select RoomNO from Room as R, RoomType as RT where RT.RoomType = '{RoomType}' and RT.RoomView = '{RoomView}' and R.RoomType = RT.RoomTypeID and RT.Price <= {price}) = RoomNO and (EndDate <= '{startDate}' OR StartDate >= '{endDate}')) union (select RoomNO from Room as R, RoomType as RT where RT.RoomType = '{RoomType}' and RT.RoomView = '{RoomView}' and R.RoomType = RT.RoomTypeID and R.Occupancy = 0  and RT.Price <= {price});";
             return dbMan.ExecuteReader(query);
         }
 
@@ -359,7 +362,8 @@ namespace DBapplication
         }
         public DataTable SelectSSNForEditEmp()
         {
-            string query = $"select ssn from employee  except (SELECT e.SSN FROM Roles as r,Employee as e where (r.RoleID = 'MGR' or r.RoleID = 'CEO') and e.RoleID = r.RoleID);";
+            string query = $"EXEC SelectSSNForEditEmp";
+            //string query = $"select ssn from employee  except (SELECT e.SSN FROM Roles as r,Employee as e where (r.RoleID = 'MGR' or r.RoleID = 'CEO') and e.RoleID = r.RoleID);";
             return dbMan.ExecuteReader(query);
         }
         public DataTable SelectSSNForEditMGR()
@@ -470,13 +474,15 @@ namespace DBapplication
 
         public int ExistAvailableRoom(string RoomType, string RoomView)
         {
-            string query = $"select 1 where EXISTS(select R.Occupancy from RoomType as RT,Room as R where RT.RoomTypeID = R.RoomType and RT.RoomType = '{RoomType}' and RT.RoomView = '{RoomView}' and R.Occupancy = 0);";
+            string query = $"EXEC ExistAvailableRoom @RoomType = '{RoomType},  @RoomView = '{RoomView}'';";
+            // string query = $"select 1 where EXISTS(select R.Occupancy from RoomType as RT,Room as R where RT.RoomTypeID = R.RoomType and RT.RoomType = '{RoomType}' and RT.RoomView = '{RoomView}' and R.Occupancy = 0);";
             return (int)dbMan.ExecuteScalar(query);
         }
 
         public int ExistRoomToReserve(string RoomType, string RoomView, string startDate, string endDate)
         {
-            string query = $"select 1 from Reservation where (select RoomNO from Room as R, RoomType as RT where RT.RoomType = '{RoomType}' and RT.RoomView = '{RoomView}' and R.RoomType = RT.RoomTypeID) = RoomNO and (EndDate < '{startDate}' OR StartDate > '{endDate}');";
+            string query = $"EXEC ExistRoomToReserve @RoomType = '{RoomType},  @RoomView = '{RoomView}',  @startDate = '{startDate}', @endDate = '{endDate}'';";
+            //string query = $"select 1 from Reservation where (select RoomNO from Room as R, RoomType as RT where RT.RoomType = '{RoomType}' and RT.RoomView = '{RoomView}' and R.RoomType = RT.RoomTypeID) = RoomNO and (EndDate < '{startDate}' OR StartDate > '{endDate}');";
             return (int)dbMan.ExecuteScalar(query);
         }
 
