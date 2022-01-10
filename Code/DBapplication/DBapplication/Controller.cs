@@ -47,6 +47,13 @@ namespace DBapplication
             }
         }
 
+        public int InsertCompanion(string fname, string minit, string lname, string ssn, string gender, string bdate, string relation)
+        {
+            string query = $"Insert into Companion values ('{fname}', '{minit}', '{lname}', {ssn}, '{gender}', '{bdate}', '{relation}')";
+            return dbMan.ExecuteNonQuery(query);
+        }
+
+
         private int InsertUser(string fname, string minit, string lname, string username, string gender, string bdate, string ssn, string mobile, string address)
         {
             try

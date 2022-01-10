@@ -82,6 +82,12 @@ namespace DBapplication
             try
             {
 
+                if (CheckUSSN.Text.Length == 0 || CheckRoomNO.Text.Length == 0 || CheckRoomTypeCombo.Text.Length == 0 || CheckRoomViewCombo.Text.Length == 0)
+                {
+                    MessageBox.Show("Complete info pls!");
+                    return;
+                }
+
                 int yy1 = CheckStartDate.Value.Year, mm1 = CheckStartDate.Value.Month;
 
                 if (mm1 <= 2)

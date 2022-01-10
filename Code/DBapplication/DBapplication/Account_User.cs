@@ -120,6 +120,11 @@ namespace DBapplication
         {
             try
             {
+                if(comboBox_roomType.Text.Length == 0 ||comboBox_RoomView.Text.Length == 0 || RoomNo_txt.Text.Length == 0 )
+                {
+                    MessageBox.Show("Complete info pls!");
+                    return;
+                }
 
                 int yy1 = viewRoom_startdate.Value.Year, mm1 = viewRoom_startdate.Value.Month;
 
@@ -146,7 +151,7 @@ namespace DBapplication
                 DataTable dt = controllerObj.SelectUserSSN(userName, password);
                 string ssn = dt.Rows[0][0].ToString();
 
-
+              
                 int check = controllerObj.InsertRerservation(viewRoom_startdate.Text, viewRoom_enddate.Text, ssn , RoomNo_txt.Text, difference);
                 MessageBox.Show("Room reserved");
             }
@@ -225,7 +230,13 @@ namespace DBapplication
             Form_changepassword newform = new Form_changepassword(userName);
             newform.Show();
         }
-	}
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            AddDepend form = new AddDepend(userName, password);
+            form.Show();
+        }
+    }
 
         
     

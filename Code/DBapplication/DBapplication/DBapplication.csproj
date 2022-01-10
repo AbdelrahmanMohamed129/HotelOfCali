@@ -55,6 +55,12 @@
     <Compile Include="Account_manager.Designer.cs">
       <DependentUpon>Account_manager.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddDepend.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddDepend.Designer.cs">
+      <DependentUpon>AddDepend.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controller.cs" />
     <Compile Include="DBManager.cs" />
     <Compile Include="Edit_Dependents.cs">
@@ -169,6 +175,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Account_manager.resx">
       <DependentUpon>Account_manager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddDepend.resx">
+      <DependentUpon>AddDepend.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Edit_Dependents.resx">
       <DependentUpon>Edit_Dependents.cs</DependentUpon>
